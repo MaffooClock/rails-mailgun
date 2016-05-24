@@ -118,7 +118,7 @@ describe MailgunTestMailer do
   describe 'sending emails cc-ed users' do
     it 'will cc mail ids from cc' do
       expect_any_instance_of(Mailgun::MessageBuilder)
-        .to receive(:add_recipient).with("from", 'from@example.com', nil)
+        .to receive(:add_recipient).with(:from, 'from@example.com', nil)
       expect_any_instance_of(Mailgun::MessageBuilder)
         .to receive(:add_recipient).with(:to, 'to@example.com')
       expect_any_instance_of(Mailgun::MessageBuilder)
@@ -133,7 +133,7 @@ describe MailgunTestMailer do
   describe 'sending emails bcc-ed users' do
     it 'will bcc mail ids from bcc' do
       expect_any_instance_of(Mailgun::MessageBuilder)
-        .to receive(:add_recipient).with("from", 'from@example.com', nil)
+        .to receive(:add_recipient).with(:from, 'from@example.com', nil)
       expect_any_instance_of(Mailgun::MessageBuilder)
         .to receive(:add_recipient).with(:to, 'to@example.com')
       expect_any_instance_of(Mailgun::MessageBuilder)
