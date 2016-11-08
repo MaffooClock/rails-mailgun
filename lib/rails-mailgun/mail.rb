@@ -15,12 +15,12 @@ module RailsMailgun
     def message_object(mail)
       message_object = Mailgun::MessageBuilder.new
 
-      message_object.set_from_address( [mail.from].flatten.join(' ') )
+      message_object.from( [mail.from].flatten.join(' ') )
       mail.to.each { |t| message_object.add_recipient(:to, t) }
       add_cc_emails_to_message_object(message_object, mail)
       add_bcc_emails_to_message_object(message_object, mail)
 
-      message_object.set_subject(mail.subject)
+      message_object.subject(mail.subject)
 
       if mail.multipart?
         set_message_object_body(message_object, mail.parts.first)
@@ -38,9 +38,9 @@ module RailsMailgun
 
     def set_message_object_body(message_object, mail)
       if mail.content_type.match(/html/)
-        message_object.set_html_body(mail.body.to_s)
+        message_object.body_html(mail.body.to_s)
       else
-        message_object.set_text_body(mail.body.to_s)
+        message_object.body_text(mail.body.to_s)
       end
     end
 
