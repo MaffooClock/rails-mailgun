@@ -15,7 +15,7 @@ module RailsMailgun
     def message_object(mail)
       message_object = Mailgun::MessageBuilder.new
 
-      message_object.set_from_address( mail.from.join(' ') )
+      message_object.set_from_address( [mail.from].flatten.join(' ') )
       mail.to.each { |t| message_object.add_recipient(:to, t) }
       add_cc_emails_to_message_object(message_object, mail)
       add_bcc_emails_to_message_object(message_object, mail)
