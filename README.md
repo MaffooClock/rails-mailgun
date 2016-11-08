@@ -1,6 +1,6 @@
 # RailsMailgun
-[![Build Status](https://travis-ci.org/code-mancers/rails-mailgun.png?branch=master)](https://travis-ci.org/code-mancers/rails-mailgun)
-[![Code Climate](https://codeclimate.com/github/code-mancers/rails-mailgun.png)](https://codeclimate.com/github/code-mancers/rails-mailgun)
+[![Build Status](https://travis-ci.org/MaffooClock/rails-mailgun.png?branch=master)](https://travis-ci.org/MaffooClock/rails-mailgun)
+[![Code Climate](https://codeclimate.com/github/MaffooClock/rails-mailgun.png)](https://codeclimate.com/github/MaffooClock/rails-mailgun)
 
 Mailgun integration for rails
 
@@ -8,7 +8,7 @@ Mailgun integration for rails
 ## Installation
 Add this line to your application's Gemfile:
 
-    gem 'rails-mailgun', git: "git://github.com/code-mancers/rails-mailgun.git"
+    gem 'rails-mailgun', github: 'MaffooClock/rails-mailgun'
 
 And then execute:
 
@@ -29,8 +29,8 @@ Your::Application.configure do
   # mailgun deilvery method
   config.action_mailer.delivery_method  = :mailgun
   config.action_mailer.mailgun_settings = {
-    api_host: "samples.mailgun.org",
-    api_key:  "key-3ax6xnjp29jd6fds4gc373sgvjxteol0"
+    api_host: 'samples.mailgun.org',
+    api_key:  'key-3ax6xnjp29jd6fds4gc373sgvjxteol0'
   }
 end
 ```
@@ -39,15 +39,3 @@ end
 Specs can be run via:
 
     bundle exec rspec spec/*_spec.rb
-
-## TODO
-1. Add error handling once the response is received from mailgun
-2. Write a helper rake task to quickly check whether integration is working or not!
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
